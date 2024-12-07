@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="G22.xsl"?>
+<?xml-model href="http://epidoc.stoa.org/schema/latest/tei-epidoc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>1976年发现查士丁一世与查士丁尼一世共治金币</title>
+                <editor>刘健昌</editor>
+                <funder>世界古典文明史研究所</funder>
+                <respStmt>
+                    <name>刘健昌</name>
+                    <resp>副执行者</resp>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>东北师范大学</authority>
+                <idno type="URI">链接</idno>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by/4.0/">Licensed under a Creative Commons-Attribution 4.0 licence</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <idno type="ID">G22</idno>
+                    </msIdentifier>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support>
+                                    <material ana="#material.metal" ref="Material Reference URL">金</material> <!--the reference #material.metal makes sense only if you have an authority file, or you can refer to the EAGLE controlled vocabularies, here: https://www.eagle-network.eu/resources/vocabularies/material/-->
+                                    <objectType>真币</objectType>
+                                    <dimensions>
+                                        <dim type="diameter">17mm</dim> <!--diameter and weight do not exist as elements in TEI/EpiDoc, so I changed it this way-->
+                                        <dim type="weight">2.6g</dim>
+                                    </dimensions>
+                                </support>
+                                <condition>DOC 1.3形，严重剪边，磨损明显，正背角度为180°</condition>
+                            </supportDesc>
+                        </objectDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origPlace>君士坦丁堡Δ铸币厂</origPlace>
+                            <origDate>查士丁一世，公元527年四月四日到八月一日</origDate>
+                        </origin>
+                        <provenance type="found">1976年发现于河北赞皇李希宗妻崔幼妃墓</provenance>
+                        <provenance type="observed">现位于河北考古研究所</provenance>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <p>Encoded following the EpiDoc guidelines (https://epidoc.stoa.org), inspired by SigiDoc (http://sigidoc.huma-num.fr), using Unicode for inscriptions.</p>
+            <p>中国出土拜占庭金币真币</p>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="la">Latin</language>
+            </langUsage>
+            <textClass>
+                <keywords>
+                    <term>金币真币</term>
+                    <term>中国出土金币真币</term>
+                </keywords>
+            </textClass>
+        </profileDesc>
+        <revisionDesc status="draft">
+            <change>
+                <date>2024年11月19日</date>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface type="obverse"> <!--I added a surface element detailing if this is the image of the obverse or of the reverse-->
+            <graphic url="G22Ob.jpg" n="1"> <!--desc is an element living inside of graphic, not an attribute-->
+            <desc>正面为查士丁一世与查士丁尼一世的并立坐像，前者居左，后者居右。两人均身着袍服，细节无法辨析，两腿左低右高，袍服下摆顺势形成褶皱，左腿膝盖处较为突出。两人脑后均有一个圆圈表示圣光，两头像之间有一十字架。</desc>
+        </graphic>
+        </surface>
+        <surface type="reverse">
+            <graphic url="G22Re.jpg" n="2">
+            <desc>背后有大方框表示的王座，两人左手位于身体内侧，右侧查士丁尼一世的手在方框之内。</desc>
+        </graphic></surface>
+    </facsimile>
+    <text> <!--I had to rewrite the text from scratch: it has to contain body and several divs for each part of the edition (edition proper, translation, commentary, bibliography)-->
+        <body>
+            <div type="edition" subtype="editorial"><!--this is the place in which to put all the semantic markup, abbreviations, lacunae etc. but also indexing terms such as emperor names erc.-->
+                <div type="textpart" subtype="face" n="obv" rend="circular" xml:lang="la"> <!--since you have two faces and something in exergue, you need to have textparts, I gave the values of obv, rev, and exe. You can also point to the rendering of the inscription, which I guess is circular in obv and rev and linear in exe in your case (but I did not see the coin, so I'm just speculating. You can also leave it aside. Important is the xml:lang, in this case Latin.-->
+                    <ab><!-- do you want to display the diplomatic in AthenaRuby? In that case, you will need two different divs, one for diplomatic and one for editorial. Oterwise, the output of the diplomatic will be only capital letters in Latin (or Greek). I set it up already, I think you should use it, because AthenaRuby was created for Byzantine coins (and seals), so it would be a pity not to use it! :) -->
+                        <lb n="1"/>Domini Nostri Iustinus et Iustinianus Perpetui Augusti
+                    </ab>
+                </div>
+                <div type="textpart" subtype="face" n="rev" rend="circular" xml:lang="la">
+                    <ab>
+                        <lb n="1"/>VICTO[RI]-AAVGGGΔ
+                    </ab>
+                </div>
+                <div type="textpart" subtype="face" n="exe" rend="linear" xml:lang="la">
+                    <ab>
+                        <lb n="1"/>CONOB
+                    </ab>
+                </div>
+            </div>
+            <div type="edition" subtype="diplomatic">
+                <div type="textpart" subtype="face" n="obv" rend="circular" xml:lang="la"> 
+                    <ab>
+                        <lb n="1"/>DNIVSTINET-IVSTINANPPAVG but in AthenaRuby 
+                    </ab>
+                </div>
+                <div type="textpart" subtype="face" n="rev" rend="circular" xml:lang="la">
+                    <ab>
+                        <lb n="1"/>AthenaRuby
+                    </ab>
+                </div>
+                <div type="textpart" subtype="face" n="exe" rend="linear" xml:lang="la">
+                    <ab>
+                        <lb n="1"/>AthenaRuby
+                    </ab>
+                </div>
+            </div>
+            <div type="translation" xml:lang="en"> <!--you have to add one translation div for each language; I preset one for Chinese-->
+                <ab n="obv"> <!--the Roman Provincial Coinage project divides the translation across faces; if you think it's useful, you can do it, otherwise you can get rid of the ab elements and have a "conrinuous" translation, i.e. not divided according to obv, rev, and exe-->
+                    Our Lords Justin and Justinian forever Augustus
+                </ab>
+                <ab n="rev">
+                    Victorius Augusti
+                </ab>
+                <ab n="exe">
+                    Constantinople Pure Gold, Mint Δ
+                </ab>
+            </div>
+            <div type="translation" xml:lang="zh">
+                <ab n="obv">
+                    xyz
+                </ab>
+                <ab n="rev">
+                   xyz
+                </ab>
+                <ab n="exe">
+                    xyt
+                </ab>
+            </div>
+            <div type="commentary" xml:lang="en"> <!--you have to add as many commentary divs as languages you want to write your commentary in. I preset a bilingual one for en and zh-->
+                <p>xyz</p>
+            </div>
+            <div type="commentary" xml:lang="zh">
+                <p>这些金币的发行时间很短，其形制也没有十分明显的变化，大体相当。铭文字数较多，中间没有中断。背面为带翼男性形象正面站立像，身着束腰外衣，右手持长柄十字架，左手托十字架圆球。不过有些金币正面两位皇帝背后有一个大正方形，表示所坐的宝座，有的没有。</p>
+            </div>
+            <div type="bibliography"> <!--for bibliography, I recommend to have an authority file because it can get very messy. But if you don't have much bibliography, you can keep it in each xml file. If you're publishing in EFES, then an authority file might be the way to go. Either way, the way to add bibliography is with the elements listBibl and bibl. I suppose 403-6 are the pages?-->
+                <listBibl>
+                    <bibl>夏鼐：《赞皇李希宗墓出土的拜占廷金币》，《考古》1977年第6期，第<citedRange unit="page">403-6</citedRange>页。</bibl>
+                </listBibl>
+            </div>
+        </body>
+    </text>
+</TEI>
